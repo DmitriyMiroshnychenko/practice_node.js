@@ -57,6 +57,8 @@ const signin = async (req, res, next) => {
 
 const logout = async (req, res, next) => {
   try {
+    await User.findByIdAndUpdate(req.user.sub, { token: null });
+    res.status(HTTP_CODES.NO_CONTENT).json();
   } catch (e) {
     next(e);
   }

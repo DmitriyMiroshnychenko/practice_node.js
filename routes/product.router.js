@@ -4,7 +4,7 @@ const { checkJwtToken } = require("../middlewares");
 
 const router = Router();
 
-router.get("/", productController.getAll);
+router.get("/", checkJwtToken, productController.getAll);
 router.post("/", checkJwtToken, productController.createOne);
 
 module.exports = { router };
