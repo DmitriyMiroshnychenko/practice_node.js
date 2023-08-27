@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const { productRouter, authRouter } = require("./routes");
 const middlewares = require("./middlewares");
 
-const { PORT = 5000, MONGO_CONNECTION_STRING } = process.env;
+const { PORT, MONGO_CONNECTION_STRING } = process.env;
 
 const app = express();
 
