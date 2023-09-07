@@ -10,7 +10,7 @@ const checkJwtToken = async (req, res, next) => {
     const token = req.headers.authorization?.split(" ")[1];
 
     if (!token) {
-      next(new HttpError(HTTP_CODES.UNAUTHORIZED, "Invalid token"));
+      return next(new HttpError(HTTP_CODES.UNAUTHORIZED, "Invalid token"));
     }
 
     const decodedToken = jwt.verify(token, JWT_SECRET_KEY);
